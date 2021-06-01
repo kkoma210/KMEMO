@@ -3,23 +3,14 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema({
     Title: {
         type: String,
-        required: true
-    },
-    Date: {
-        type: Date,
-        default: Date.now
     },
     Author: {
         type: String
     },
-    body: {
+    Body: {
         type: String,
-        required: true
     }  
-},
-{
-    collection: 'diary'
-});
+}, {timestamps: true})
 
-const DiaryModel = mongoose.model("diary", schema);
+const DiaryModel = mongoose.model("myDiary", schema);
 module.exports = DiaryModel;

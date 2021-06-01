@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    background: ${oc.gray[2]};
+    background: ${oc.teal[2]};
 `;
 
 const Contents = styled.div`
