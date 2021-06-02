@@ -1,24 +1,8 @@
 /* client/src/App.js */
-
-.container{
-    top: 60px;
-}
-
-.App {
-    text-align: center;
-    top: 60px;
-  }
-  
-  * {
-    background: #f3f4f8;
-  }
-  
-  .cell {
+  .unit {
     width: 300;
     height: 300;
     padding: 5px;
-    text-align: center;
-    flex-direction: row;
     cursor:pointer;
     padding: 15px;
   }
@@ -39,15 +23,15 @@
     align-items: center;
   }
   
-  
-  .picture {
-    height: 150px;
-    width: 170px;
+  .png {
+    height: 230px;
+    width: 230px;
     border-radius: 10px;
   }
   
-  .trList {
+  .trL {
     display: flex;
+    justify-content: space-around;
     /* padding: 5%; */
     margin: auto;
     flex-wrap: wrap;
@@ -64,10 +48,6 @@
     box-shadow: 5px 5px 10px #e4e4e4, -5px -5px 10px #ffffff;
   }
   
-  .container {
-    padding: 5%;
-  }
-  
   @media screen and (min-device-width: 375px) and (max-device-width: 768px) {
     .buttonTr {
       width: 100%;
@@ -77,10 +57,9 @@
       align-items: center;
     }
   
-    .cell {
+    .unit {
       width: 90%;
       height: 70%;
-      /* padding: 5px;*/
       margin: 0% 3% 0% 3%;
       text-align: center;
       flex-direction: row;

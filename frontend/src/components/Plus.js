@@ -1,7 +1,8 @@
 import {React, Fragment, Component} from 'react';
 import axios from 'axios';
+import './Plus.css';
 
-class Pluse extends Component {
+class Plus extends Component {
     state = {
         title: "",
         body: "",
@@ -44,7 +45,7 @@ class Pluse extends Component {
                                 <br/>
                                 <textarea name='body' value={this.state.body} onChange={this.handleChange} />
                                 <div className='btt-wrap'>
-                                    <button onClick={this.handleClick}>
+                                    <button className='btn' onClick={this.handleClick}>
                                         <p>작성 완료</p>
                                     </button>
                                 </div>
@@ -57,4 +58,4 @@ class Pluse extends Component {
     }
 }
 
-export default Pluse;
+export default Plus;

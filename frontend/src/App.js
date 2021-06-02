@@ -8,15 +8,6 @@ import Header from './components/Header';
 function App() {
   return (
     <BrowserRouter>
-      <Header>
-        <Link to = '/'>
-          <button>Home</button>
-       </Link>
-        <Link to = '/about'>
-          <button>About</button>
-        </Link>
-      </Header>
-      <hr />
       <main>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />

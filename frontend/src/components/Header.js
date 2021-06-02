@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
+import NavBar from './NavBar';
 
 const Wrapper = styled.div`
     position: fixed;
@@ -28,23 +29,22 @@ const Logo = styled.div`
     padding-left: 2rem;
     font-size: 1.5 rem;
     letter-spacing: 2px;
-    color: ${oc.black[6]};
+    color: ${oc.black};
+    background: ${oc.teal[2]};
 `;
 
-const Space = styled.div`
+const Spacer = styled.div`
     flex-grow: 1;
 `;
 
-const Header = ({children}) => {
+const Header = () => {
     return(
         <Wrapper>
             <Logo>
                 MyDiary
             </Logo>
-            <Space />
-            <Contents>
-                {children}
-            </Contents>
+            <Spacer/>
+            <NavBar/>
         </Wrapper>
     );
 }
