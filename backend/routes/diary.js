@@ -20,4 +20,18 @@ router.post('/write', (req, res) => {
     });
 })
 
+router.get('/good', (req, res) => {
+    console.log('good');
+    db.updateGood(req.body,() => {
+        res.status(200).send();
+    })
+});
+
+router.get('/bad', (req, res) => {
+    console.log('bad');
+    db.updateBad(req.body,() => {
+        res.status(200).send();
+    })
+});
+
 module.exports = router;

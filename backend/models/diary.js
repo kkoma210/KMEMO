@@ -9,7 +9,15 @@ const schema = new mongoose.Schema({
     },
     Body: {
         type: String,
-    }  
+    },
+    Good: {
+        type: Number,
+        default: 0
+    },  
+    Bad: {
+        type: Number,
+        default: 0
+    }
 }, {timestamps: true})
 
 const DiaryModel = mongoose.model("myDiary", schema);

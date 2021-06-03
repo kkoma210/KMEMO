@@ -35,6 +35,24 @@ function readAllDiary(callback){
     });
 }
 
+function updateGood(id, delta, callback){
+    DiaryModel.findById(id, function(err, diary){
+        diary.Good += delta;
+        diary.save((err) => {
+            callback();
+        });
+    }); 
+}
+
+function updateBad({id, delta}, callback){
+    DiaryModel.findById(id, function(err, diary){
+        diary.Bad += delta;
+        diary.save((err) => {
+            callback();
+        });
+    }); 
+}
+
 module.exports = {
     createDiary,
     findDiary,
