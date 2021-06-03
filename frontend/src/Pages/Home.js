@@ -85,7 +85,7 @@ class Home extends React.Component {
 
     render() {
         return(
-            <MainLayout title="일기장">
+            <MainLayout title="K-메모장">
                 <table>
                     <tbody>
                         <tr className='trL'>
@@ -93,9 +93,10 @@ class Home extends React.Component {
                             this.state.diaries.map ( diary =>
                                 <td className='unit' key={diary._id}>
                                     <div className='inner'>
-                                        <h2> {diary.Title} </h2>
-                                        <h5> {diary.Author} </h5><br/><br/>
-                                        <h4> {diary.Body} </h4><br/>
+                                        <h2> {diary.Title.substring(0,6) + (diary.Title.length>6 ? '...' : '')} </h2>
+                                        <h5> {diary.Author.substring(0,6) + (diary.Author.length>6 ? '...' : '')} </h5><br/><br/>
+                                        <h4> {diary.Body.substring(0,80) + (diary.Body.length>80 ? '...' : '')} </h4><br/><br/>
+                                        <h5> {diary.updatedAt.split('T')[0]}</h5>
                                     </div>
                                 </td>
                             )}

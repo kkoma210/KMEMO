@@ -41,7 +41,7 @@ const Header = () => {
     return(
         <Wrapper>
             <Logo>
-                MyDiary
+                KMEMO
             </Logo>
             <Spacer/>
             <NavBar/>
