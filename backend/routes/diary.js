@@ -13,15 +13,16 @@ router.post('/write', (req, res) => {
     const title = req.body.Title;
     const body = req.body.Body;
     const author = req.body.Author;
-    console.log(title, body, author);
+    //console.log(title, body, author);
     db.createDiary(title, body, author, (newItem) => {
-        console.log(newItem);
+        //console.log(newItem);
         res.status(200).send(newItem);
     });
 })
 
-router.get('/good', (req, res) => {
+router.post('/good', (req, res) => {
     console.log('good');
+    console.log(req.body);
     db.updateGood(req.body,() => {
         res.status(200).send();
     })

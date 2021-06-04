@@ -8,11 +8,39 @@ import styled from 'styled-components';
 import oc from 'open-color';
 import Header from '../components/Header';
 import './Home.css';
+import Btn from '../components/Buttons';
 
 const Wrapper = styled.div`
-    width: 100px;
-    height: 100px;
-    background: ${oc.black};
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    height: 50px;
+    background: ${oc.teal[2]};
+`;
+
+const BtnWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 25px;
+    cursor: pointer;
+    align-self: right;
+    background: ${oc.white};
+    border-radius: 5px;
+    &:hover{
+        background: ${oc.gray[2]};
+    }
+    &:active{
+        background: ${oc.gray[6]};
+    }
+`;
+
+const SpaceBox = styled.div`
+    width: 5px;
 `;
 
 class Home extends React.Component {
@@ -33,6 +61,15 @@ class Home extends React.Component {
         this.getAllDiary();
     }
 
+    upGood = (id) => {
+        console.log(id);
+        axios.post('api/diary/good', {
+            id: id,
+            delta: 1
+        })
+        .then(() => this.getAllDiary())
+    }
+
     getAllDiary() {
         axios.get('api/diary')
         .then(res => {
@@ -49,40 +86,6 @@ class Home extends React.Component {
         })
     }
 
-    // render() {
-    //     return (
-    //       <div className='container'>
-    //       <div className='Diary'>
-    //         <h1> 일기장 </h1><br/><br/>
-            // <table>
-            //     <tbody>
-            //          <tr className='trList'>
-            //             {
-            //             this.state.diaries.map ( diary =>
-            //                 <td className='cell' key={diary._id}>
-            //                     <div className='inner'>
-            //                         <h2> {diary.Title} </h2>
-            //                         <h5> {diary.Author} </h5><br/><br/>
-            //                         <h4> {diary.Body} </h4><br/>
-            //                     </div>
-            //                 </td>
-            //             )}
-            //             <td className='cell'>
-            //                 <div className='inner' onClick={this.openPlus}>
-            //                     <img src={plusimg} className='picture' alt='Logo' />
-            //                 </div>
-            //             </td>
-            //         </tr>
-            //     </tbody>
-            // </table>
-            // <main className='Diary'>
-            //     <Plus isOpen={this.state.isPlusOpen} close={this.closePlus} />
-            // </main>
-    //       </div>
-    //       </div>
-    //     );
-    //   }
-
     render() {
         return(
             <MainLayout title="K-메모장">
@@ -95,10 +98,17 @@ class Home extends React.Component {
                                     <div className='inner'>
                                         <h2> {diary.Title.substring(0,6) + (diary.Title.length>6 ? '...' : '')} </h2>
                                         <h5> {diary.Author.substring(0,6) + (diary.Author.length>6 ? '...' : '')} </h5><br/><br/>
-                                        <h4> {diary.Body.substring(0,80) + (diary.Body.length>80 ? '...' : '')} </h4><br/><br/>
+                                        <h4> {diary.Body.substring(0,60) + (diary.Body.length>60 ? '...' : '')} </h4><br/><br/>
                                         <h5> {diary.updatedAt.split('T')[0]}</h5>
+                                        <Wrapper>
+                                            <SpaceBox/>
+                                            <BtnWrapper onClick={() => this.upGood(diary._id)}>
+                                                <Btn gob={true} number={diary.Good}/>
+                                            </BtnWrapper>
+                                        </Wrapper>
                                     </div>
                                 </td>
+                                
                             )}
                             <td className='unit'>
                                 <div className='inner' onClick={this.openPlus}>

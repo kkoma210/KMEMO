@@ -35,7 +35,7 @@ function readAllDiary(callback){
     });
 }
 
-function updateGood(id, delta, callback){
+function updateGood({id, delta}, callback){
     DiaryModel.findById(id, function(err, diary){
         diary.Good += delta;
         diary.save((err) => {
@@ -56,5 +56,7 @@ function updateBad({id, delta}, callback){
 module.exports = {
     createDiary,
     findDiary,
-    readAllDiary
+    readAllDiary,
+    updateGood,
+    updateBad
 };
