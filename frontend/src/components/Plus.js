@@ -9,7 +9,7 @@ class Plus extends Component {
         author: ""
     }
 
-    handleClick = (event) => {
+    handleClick = () => {
         axios.post('api/diary/write', {
             Title: this.state.title,
             Author: this.state.author,
@@ -17,14 +17,17 @@ class Plus extends Component {
         })
         .then((res) => {
             this.props.close();
+            this.setState({title: ""});
+            this.setState({body: ""});
+            this.setState({author: ""});
             return res.json();
         })
         .catch((err) => {console.log(err)})
     }
 
     handleChange = (event) => {
-        const {target: {name, value} } = event
-        this.setState({[name] : value})
+        const {target: {name, value} } = event;
+        this.setState({[name] : value});
     }
 
     render() {
@@ -45,7 +48,7 @@ class Plus extends Component {
                                 <br/>
                                 <textarea name='body' value={this.state.body} onChange={this.handleChange} />
                                 <div className='btt-wrap'>
-                                    <button className='btn' onClick={this.handleClick}>
+                                    <button className='btn' onClick={() => this.handleClick()}>
                                         <p>작성 완료</p>
                                     </button>
                                 </div>
