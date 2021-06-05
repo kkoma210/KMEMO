@@ -12,12 +12,6 @@ const Img = styled.img`
     border-radius: 5px;
 `;
 
-const Text = styled.div`
-    color: ${oc.black};
-    font-size: 0.2rem;
-`;
-
-
 const Star = ({light}) => {
     return(
             <Fragment>

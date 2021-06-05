@@ -3,12 +3,11 @@ import axios from 'axios';
 import Plus from '../components/Plus';
 import plusimg from '../images/plus.png';
 import MainLayout from '../components/layout';
-import {Container, Row} from 'react-bootstrap';
 import styled from 'styled-components';
 import oc from 'open-color';
-import Header from '../components/Header';
 import './Home.css';
 import Btn from '../components/Buttons';
+import Star from '../components/Star';
 
 const Wrapper = styled.div`
     display: flex;
@@ -78,6 +77,13 @@ class Home extends React.Component {
         })
     }
 
+    changeStar = (id) => {
+        axios.post('api/diary/star', {
+            id: id
+        })
+        .then(() => this.getAllDiary())
+    }
+
     componentWillMount() {
         axios.get('api/diary')
         .then(res => {
@@ -85,6 +91,7 @@ class Home extends React.Component {
             this.setState({diaries: res.data});
         })
     }
+
 
     render() {
         return(
@@ -97,10 +104,12 @@ class Home extends React.Component {
                                 <td className='unit' key={diary._id}>
                                     <div className='inner'>
                                         <Wrapper>
-
+                                            <BtnWrapper onClick={() => this.changeStar(diary._id)}>
+                                                <Star light={diary.Star}/>
+                                            </BtnWrapper>
                                         </Wrapper>
-                                        <h2> {diary.Title.substring(0,6) + (diary.Title.length>6 ? '...' : '')} </h2>
-                                        <h5> {diary.Author.substring(0,6) + (diary.Author.length>6 ? '...' : '')} </h5><br/><br/>
+                                        <h2> {diary.Title.substring(0,10) + (diary.Title.length>10 ? '...' : '')} </h2>
+                                        <h5> {diary.Author.substring(0,10) + (diary.Author.length>10 ? '...' : '')} </h5><br/><br/>
                                         <h4> {diary.Body.substring(0,60) + (diary.Body.length>60 ? '...' : '')} </h4><br/><br/>
                                         <h5> {diary.updatedAt.split('T')[0]}</h5>
                                         <Wrapper>
