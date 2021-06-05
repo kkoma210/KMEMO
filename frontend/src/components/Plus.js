@@ -41,7 +41,7 @@ class Plus extends Component {
                         <div className="Plus">
                             <h1 className="alert">일기를 적어봅시다</h1>
                             <div className="body">
-                                <h4>
+                                <h4 className='ph4'>
                                     <input type='text' placeholder='제목' name='title' value={this.state.title} onChange={this.handleChange} />
                                     <input type='text' placeholder='작성자명' name='author' value={this.state.author} onChange={this.handleChange}/>
                                 </h4>

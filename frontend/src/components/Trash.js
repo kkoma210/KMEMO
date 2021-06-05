@@ -1,6 +1,5 @@
 import {React, Fragment} from 'react';
 import styled from 'styled-components';
-import oc from 'open-color';
 import trash from '../images/trash.png';
 
 

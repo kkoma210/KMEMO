@@ -1,6 +1,5 @@
 import {React, Fragment} from 'react';
 import styled from 'styled-components';
-import oc from 'open-color';
 import bstar from '../images/bright_star.png';
 import dstar from '../images/dark_star.png';
 

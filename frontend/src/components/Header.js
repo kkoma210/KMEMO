@@ -15,16 +15,6 @@ const Wrapper = styled.div`
     background: ${oc.teal[2]};
 `;
 
-const Contents = styled.div`
-    width: 1200px;
-    height: 55px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    align-items: center;
-    display:flex;
-    flex-direction: row;
-`;
-
 const Logo = styled.div`
     padding-left: 2rem;
     font-size: 1.5 rem;
@@ -33,17 +23,12 @@ const Logo = styled.div`
     background: ${oc.teal[2]};
 `;
 
-const Spacer = styled.div`
-    flex-grow: 1;
-`;
-
 const Header = () => {
     return(
         <Wrapper>
             <Logo>
                 KMEMO
             </Logo>
-            <Spacer/>
             <NavBar/>
         </Wrapper>
     );
