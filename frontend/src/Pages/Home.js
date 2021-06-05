@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 250px;
+    width: 220px;
     height: 50px;
 `;
 
@@ -40,6 +40,25 @@ const BtnWrapper = styled.div`
 
 const SpaceBox = styled.div`
     width: 5px;
+`;
+
+const BodyText = styled.div`
+    width: 190px;
+    height: auto;
+    color : #403f3e;
+    font-weight : 300;
+    margin: 5px;
+    word-break: break-all;
+    white-space: pre-line;
+`;
+
+const ContentBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    height: 130px;
 `;
 
 class Home extends React.Component {
@@ -127,10 +146,12 @@ class Home extends React.Component {
                                                 <Trash/>
                                             </BtnWrapper>
                                         </Wrapper>
-                                        <h2> {diary.Title.substring(0,10) + (diary.Title.length>10 ? '...' : '')} </h2>
-                                        <h5> {diary.Author.substring(0,10) + (diary.Author.length>10 ? '...' : '')} </h5><br/><br/>
-                                        <h4> {diary.Body.substring(0,60) + (diary.Body.length>60 ? '...' : '')} </h4><br/><br/>
-                                        <h5> {diary.updatedAt.split('T')[0]}</h5>
+                                        <ContentBox>
+                                            <h2> {diary.Title.substring(0,10) + (diary.Title.length>10 ? '...' : '')} </h2>
+                                            <h5> {diary.Author.substring(0,10) + (diary.Author.length>10 ? '...' : '')} </h5>
+                                            <BodyText> {diary.Body.substring(0,64) + (diary.Body.length>64 ? '...' : '')} </BodyText>
+                                            <h5> {diary.updatedAt.split('T')[0]}</h5>
+                                        </ContentBox>
                                         <Wrapper>
                                             <SpaceBox/>
                                             <BtnWrapper onClick={() => this.upGood(diary._id)}>

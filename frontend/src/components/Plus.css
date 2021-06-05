@@ -58,7 +58,7 @@ textarea {
     padding: 15 px;
   }
 
-h4 {
+.ph4 {
     display: flex;
     flex-direction: column;
     align-items: center;
