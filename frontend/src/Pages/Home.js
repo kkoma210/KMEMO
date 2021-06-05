@@ -8,6 +8,7 @@ import oc from 'open-color';
 import './Home.css';
 import Btn from '../components/Buttons';
 import Star from '../components/Star';
+import Trash from '../components/Trash';
 
 const Wrapper = styled.div`
     display: flex;
@@ -84,6 +85,10 @@ class Home extends React.Component {
         .then(() => this.getAllDiary())
     }
 
+    trashDiary = () => {
+        console.log('trash');
+    }
+
     componentWillMount() {
         axios.get('api/diary')
         .then(res => {
@@ -117,6 +122,9 @@ class Home extends React.Component {
                                         <Wrapper>
                                             <BtnWrapper onClick={() => this.changeStar(diary._id)}>
                                                 <Star light={diary.Star}/>
+                                            </BtnWrapper>
+                                            <BtnWrapper onClick={() => this.trashDiary()}>
+                                                <Trash/>
                                             </BtnWrapper>
                                         </Wrapper>
                                         <h2> {diary.Title.substring(0,10) + (diary.Title.length>10 ? '...' : '')} </h2>
