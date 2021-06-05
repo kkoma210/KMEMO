@@ -22,7 +22,6 @@ router.post('/write', (req, res) => {
 
 router.post('/good', (req, res) => {
     console.log('good');
-    console.log(req.body);
     db.updateGood(req.body,() => {
         res.status(200).send();
     })
@@ -42,7 +41,6 @@ router.get('/bad', (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-    console.log(req.params.id);
     db.trashDiary(req.params.id, () => {
         res.status(200).send();
     })
