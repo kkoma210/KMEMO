@@ -41,4 +41,11 @@ router.get('/bad', (req, res) => {
     })
 });
 
+router.delete("/:id", (req, res) => {
+    console.log(req.params.id);
+    db.trashDiary(req.params.id, () => {
+        res.status(200).send();
+    })
+})
+
 module.exports = router;

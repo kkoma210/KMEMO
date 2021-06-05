@@ -62,11 +62,18 @@ function changeStar({id}, callback){
     })
 }
 
+function trashDiary(id, callback){
+    DiaryModel.findByIdAndDelete(id, (err, docs) => {
+        callback();
+    })
+}
+
 module.exports = {
     createDiary,
     findDiary,
     readAllDiary,
     updateGood,
     updateBad,
-    changeStar
+    changeStar,
+    trashDiary
 };
