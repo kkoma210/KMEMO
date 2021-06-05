@@ -17,6 +17,10 @@ const schema = new mongoose.Schema({
     Bad: {
         type: Number,
         default: 0
+    },
+    Star: {
+        type: Boolean,
+        default: false
     }
 }, {timestamps: true})
 

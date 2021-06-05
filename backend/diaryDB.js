@@ -53,10 +53,20 @@ function updateBad({id, delta}, callback){
     }); 
 }
 
+function changeStar({id}, callback){
+    DiaryModel.findById(id, (err, diary) => {
+        diary.Star = !diary.Star;
+        diary.save((err) => {
+            callback();
+        })
+    })
+}
+
 module.exports = {
     createDiary,
     findDiary,
     readAllDiary,
     updateGood,
-    updateBad
+    updateBad,
+    changeStar
 };

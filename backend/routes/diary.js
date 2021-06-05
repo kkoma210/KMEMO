@@ -28,6 +28,12 @@ router.post('/good', (req, res) => {
     })
 });
 
+router.post('/star', (req, res) => {
+    db.changeStar(req.body, () => {
+        res.status(200).send();
+    })
+})
+
 router.get('/bad', (req, res) => {
     console.log('bad');
     db.updateBad(req.body,() => {
