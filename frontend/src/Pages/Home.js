@@ -96,6 +96,9 @@ class Home extends React.Component {
                             this.state.diaries.map ( diary =>
                                 <td className='unit' key={diary._id}>
                                     <div className='inner'>
+                                        <Wrapper>
+
+                                        </Wrapper>
                                         <h2> {diary.Title.substring(0,6) + (diary.Title.length>6 ? '...' : '')} </h2>
                                         <h5> {diary.Author.substring(0,6) + (diary.Author.length>6 ? '...' : '')} </h5><br/><br/>
                                         <h4> {diary.Body.substring(0,60) + (diary.Body.length>60 ? '...' : '')} </h4><br/><br/>
