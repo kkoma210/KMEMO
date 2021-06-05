@@ -100,19 +100,19 @@ class Home extends React.Component {
 
     render() {
         return(
-            <MainLayout title="K-메모장">
+            <MainLayout title="MEMOS">
                 <table>
                     <tbody>
                         <tr className='trL'>
                             {
                             this.state.diaries.sort(function(a,b){
                                 var value;
-                                if(a.Star==true){
-                                    if(b.Star==true) value = 0;
+                                if(a.Star){
+                                    if(b.Star) value = 0;
                                     else value = -1;
                                 }
                                 else{
-                                    if(b.Star==true) value = 1;
+                                    if(b.Star) value = 1;
                                     else value = 0;
                                 }
                                 return(value);
