@@ -85,8 +85,9 @@ class Home extends React.Component {
         .then(() => this.getAllDiary())
     }
 
-    trashDiary = () => {
-        console.log('trash');
+    trashDiary = (id) => {
+        axios.delete(`api/diary/${id}`)
+        .then(() => this.getAllDiary())
     }
 
     componentWillMount() {
@@ -123,7 +124,7 @@ class Home extends React.Component {
                                             <BtnWrapper onClick={() => this.changeStar(diary._id)}>
                                                 <Star light={diary.Star}/>
                                             </BtnWrapper>
-                                            <BtnWrapper onClick={() => this.trashDiary()}>
+                                            <BtnWrapper onClick={() => this.trashDiary(diary._id)}>
                                                 <Trash/>
                                             </BtnWrapper>
                                         </Wrapper>
