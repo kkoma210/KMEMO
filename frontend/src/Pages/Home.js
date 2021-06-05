@@ -17,7 +17,6 @@ const Wrapper = styled.div`
     justify-content: space-between;
     width: 250px;
     height: 50px;
-    background: ${oc.teal[2]};
 `;
 
 const BtnWrapper = styled.div`
@@ -143,7 +142,7 @@ class Home extends React.Component {
                                 
                             )}
                             <td className='unit'>
-                                <div className='inner' onClick={this.openPlus}>
+                                <div className='inner' onClick={() => this.openPlus()}>
                                     <img src={plusimg} className='png' alt='Logo' />
                                 </div>
                             </td>
@@ -151,7 +150,7 @@ class Home extends React.Component {
                     </tbody>
                 </table>
                 <main className='Diary'>
-                    <Plus isOpen={this.state.isPlusOpen} close={this.closePlus} />
+                    <Plus isOpen={this.state.isPlusOpen} close={() => this.closePlus()} />
                 </main>
             </MainLayout>
         );
