@@ -100,7 +100,18 @@ class Home extends React.Component {
                     <tbody>
                         <tr className='trL'>
                             {
-                            this.state.diaries.map ( diary =>
+                            this.state.diaries.sort(function(a,b){
+                                var value;
+                                if(a.Star==true){
+                                    if(b.Star==true) value = 0;
+                                    else value = -1;
+                                }
+                                else{
+                                    if(b.Star==true) value = 1;
+                                    else value = 0;
+                                }
+                                return(value);
+                            }).map ( diary =>
                                 <td className='unit' key={diary._id}>
                                     <div className='inner'>
                                         <Wrapper>
