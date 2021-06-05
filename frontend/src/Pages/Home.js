@@ -9,6 +9,7 @@ import './Home.css';
 import Btn from '../components/Buttons';
 import Star from '../components/Star';
 import Trash from '../components/Trash';
+import Open from '../components/openDiary';
 
 const Wrapper = styled.div`
     display: flex;
@@ -66,7 +67,8 @@ class Home extends React.Component {
         super(props);
         this.state = {
             isPlusOpen: false,
-            diaries: []
+            diaries: [],
+            isOpenOpen: false
         }
     }
 
@@ -80,7 +82,6 @@ class Home extends React.Component {
     }
 
     upGood = (id) => {
-        console.log(id);
         axios.post('api/diary/good', {
             id: id,
             delta: 1
@@ -91,7 +92,6 @@ class Home extends React.Component {
     getAllDiary() {
         axios.get('api/diary')
         .then(res => {
-            console.log(res.data);
             this.setState({diaries: res.data});
         })
     }
@@ -108,10 +108,18 @@ class Home extends React.Component {
         .then(() => this.getAllDiary())
     }
 
+    showDiary = (diary) => {
+        this.openDiary = diary;
+        this.setState({isOpenOpen: true});
+    }
+
+    closeShow = () => {
+        this.setState({isOpenOpen: false});
+    }
+
     componentWillMount() {
         axios.get('api/diary')
         .then(res => {
-            console.log(res.data);
             this.setState({diaries: res.data});
         })
     }
@@ -146,7 +154,7 @@ class Home extends React.Component {
                                                 <Trash/>
                                             </BtnWrapper>
                                         </Wrapper>
-                                        <ContentBox>
+                                        <ContentBox onClick={() => this.showDiary(diary)}>
                                             <h2> {diary.Title.substring(0,10) + (diary.Title.length>10 ? '...' : '')} </h2>
                                             <h5> {diary.Author.substring(0,10) + (diary.Author.length>10 ? '...' : '')} </h5>
                                             <BodyText> {diary.Body.substring(0,64) + (diary.Body.length>64 ? '...' : '')} </BodyText>
@@ -170,6 +178,9 @@ class Home extends React.Component {
                         </tr>
                     </tbody>
                 </table>
+                <main>
+                    <Open isOpen={this.state.isOpenOpen} close={() => this.closeShow()} diary={this.openDiary} />
+                </main>
                 <main className='Diary'>
                     <Plus isOpen={this.state.isPlusOpen} close={() => this.closePlus()} />
                 </main>
