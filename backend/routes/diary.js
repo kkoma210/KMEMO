@@ -10,12 +10,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/write', (req, res) => {
+    console.log('write');
     const title = req.body.Title;
     const body = req.body.Body;
     const author = req.body.Author;
-    //console.log(title, body, author);
     db.createDiary(title, body, author, (newItem) => {
-        //console.log(newItem);
         res.status(200).send(newItem);
     });
 })
@@ -28,6 +27,7 @@ router.post('/good', (req, res) => {
 });
 
 router.post('/star', (req, res) => {
+    console.log('star');
     db.changeStar(req.body, () => {
         res.status(200).send();
     })

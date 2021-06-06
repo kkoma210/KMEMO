@@ -1,16 +1,5 @@
 const DiaryModel = require('./models/diary');
 
-// function createDiary(title, body, author, callback){
-//     const newDiary = new DiaryModel({
-//         Title: title,
-//         Author: author,
-//         Body: body
-//     });
-//     newDiary.save((error, result) => {
-//         callback(result);
-//     });
-// }
-
 function createDiary(title, body, author, callback) {
     const newItem = new DiaryModel({
       Title: title,
@@ -30,7 +19,6 @@ function findDiary(title, callback){
 
 function readAllDiary(callback){
     DiaryModel.find({}, (err, result) => {
-        console.log(result);
         callback(result);
     });
 }
