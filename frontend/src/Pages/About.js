@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import oc from 'open-color';
-import './About.css';
 import MainLayout from '../components/layout';
 import kmemo from '../images/kmemo.png';
 

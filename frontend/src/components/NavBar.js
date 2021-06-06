@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import oc from 'open-color';
 
 const Spacer = styled.div`
-    flex-grow: 1;
-    background: ${oc.teal[2]};
+    width: 1px;
 `;
 
 const Wrapper = styled.div`

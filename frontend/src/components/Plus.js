@@ -39,7 +39,7 @@ class Plus extends Component {
                     <Fragment>
                         <div className="Plus-overlay" onClick={close} />
                         <div className="Plus">
-                            <h1 className="alert">일기를 적어봅시다</h1>
+                            <h1 className="alert">메모를 적어봅시다</h1>
                             <div className="body">
                                 <h4 className='ph4'>
                                     <input type='text' placeholder='제목' name='title' value={this.state.title} onChange={this.handleChange} />
