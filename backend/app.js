@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-mongoose.connect("mongodb://whale.sparcs.org:45921/myDiary", {
+mongoose.connect("mongodb+srv://acetop210:#kdh3414kdh#@cluster0.nvuj7.mongodb.net/myDiary?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
