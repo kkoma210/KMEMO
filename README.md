@@ -8,5 +8,3 @@ My Diary is your own space where you can write down your thoughts.
 Using React & Express & Mongoose
 
 MadeBy: kkOma
-
-[Link](whale.sparcs.org:41254)
