@@ -9,6 +9,8 @@ var diaryRouter = require('./routes/diary');
 
 var app = express();
 
+const root = path.join(__dirname, '..', 'frontend', 'build');
+app.use(express.static(root));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,6 +33,10 @@ db.once("open", function() {
   console.log("DB connected!");
 });
 
-app.use('/diary', diaryRouter);
+app.use('/api/diary', diaryRouter);
+
+app.get('/', (req, res, next) => {
+  res.sendFile(path.join(root, 'index.html'));
+});
 
 module.exports = app;
